@@ -1,0 +1,182 @@
+- episode_json:
+    series_number: 1
+    episode_number: 1
+    title: Series 1, Episode 1
+    air_date: 10/20/2002
+    guests:
+      - name: Harry Enfield
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Citroen Berlingo Multispace
+      - name: Lamborghini Murcielago
+      - name: Pagani Zonda
+      - name: Mazda 6
+    features:
+      - description: Speed cameras
+- episode_json:
+    series_number: 1
+    episode_number: 2
+    title: Series 1, Episode 2
+    air_date: 10/27/2002
+    guests:
+      - name: Jay Kay
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Ford Focus RS
+      - name: Noble M12 GTO
+    features:
+      - description: Bus jumping over bikes
+- episode_json:
+    series_number: 1
+    episode_number: 3
+    title: Series 1, Episode 3
+    air_date: 11/03/2002
+    guests:
+      - name: Ross Kemp
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Mini One
+      - name: Toyota Yaris Verso
+      - name: Citroen DS
+      - name: Westfield XTR2
+      - name: Aston Martin DB7
+    features:
+      - description: Grannies doing donuts with a Honda S2000
+- episode_json:
+    series_number: 1
+    episode_number: 4
+    title: Series 1, Episode 4
+    air_date: 11/10/2002
+    guests:
+      - name: Steve Coogan
+      - name: Richard Burns
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Aston Martin Vanquish
+      - name: Ferrari 575M Maranello
+      - name: Nissan Skyline R34 GT-R
+    features:
+      - description: Family saloon F1
+- episode_json:
+    series_number: 1
+    episode_number: 5
+    title: Series 1, Episode 5
+    air_date: 11/17/2002
+    guests:
+      - name: Jonathon Ross
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Mercedes-Benz S-Class
+      - name: Audi A8
+      - name: Maybach 62
+      - name: Bentley Amage
+    features:
+      - description: Create a Bond car
+- episode_json:
+    series_number: 1
+    episode_number: 6
+    title: Series 1, Episode 6
+    air_date: 11/24/2002
+    guests:
+      - name: Tara Palmer-Tomkinson
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Renault Vel Satis
+      - name: BMW Z4
+      - name: Mercedes-Benz SL55 AMG
+      - name: Honda NSX Type R
+    features:
+      - description: Grannies doing handbrake parking
+- episode_json:
+    series_number: 1
+    episode_number: 7
+    title: Series 1, Episode 7
+    air_date: 12/01/2002
+    guests:
+      - name: Rick Parfitt
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Saab 9-3
+      - name: Lotus Elise 111S
+    features:
+      - description: Religious leaders race
+- episode_json:
+    series_number: 1
+    episode_number: 8
+    title: Series 1, Episode 8
+    air_date: 12/08/2002
+    guests:
+      - name: Sir Michael Gambon
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Audi RS6
+      - name: Mercedes-Benz E55 AMG
+      - name: Maserati Coupe
+      - name: Ford Fiesta
+      - name: Cirtoen C3
+      - name: Honda Jazz
+      - name: Nissan Micra
+      - name: MG ZR
+      - name: Lada Riva (by Lotus)
+    features:
+      - description: Fastest white van man
+- episode_json:
+    series_number: 1
+    episode_number: 9
+    title: Series 1, Episode 9
+    air_date: 12/22/2002
+    guests:
+      - name: Gordon Ramsay
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Volvo XC90
+      - name: Subaru Forester
+      - name: Volkswagen Golf R32
+      - name: Honda Civic Type R
+      - name: Toyota Land Cruiser
+    features:
+      - description: Stripped down Jaguar XJS
+- episode_json:
+    series_number: 1
+    episode_number: 10
+    title: Series 1, Episode 10
+    air_date: 12/29/2002
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: Jason Dawe
+    cars:
+      - name: Range Rover
+      - name: Lotus Esprit
+      - name: Nissan Primera
+      - name: TVR T350C
+    features:
+      - description: Religious leaders race
+      - description: Top Gear Awards 2002
