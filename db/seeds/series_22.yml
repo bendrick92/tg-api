@@ -1,0 +1,169 @@
+- episode_json:
+    series_number: 22
+    title: Patagonia Special - Part 1
+    air_date: 12/27/2014
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: Porsche 928 GT
+      - name: Lotus Esprit V8
+      - name: Ford Mustang Mach 1
+    features:
+      - description: Drive from Bariloche to Ushuaia
+- episode_json:
+    series_number: 22
+    title: Patagonia Special - Part 2
+    air_date: 12/28/2014
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: Porsche 928 GT
+      - name: Lotus Esprit V8
+      - name: Ford Mustang Mach 1
+    features:
+      - description: Drive from Bariloche to Ushuaia
+- episode_json:
+    series_number: 22
+    episode_number: 1
+    title: Series 22, Episode 1
+    air_date: 01/25/2015
+    guests:
+      - name: Ed Sheeran
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: Lamborghini Huracan
+      - name: Renault Twizy
+    features:
+      - description: Race across St. Petersburg
+- episode_json:
+    series_number: 22
+    episode_number: 2
+    title: Series 22, Episode 2
+    air_date: 02/01/2015
+    guests:
+      - name: Kiefer Sutherland
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: BMW M6 Gran Coupe
+      - name: Nissan GT-R
+      - name: Bentley Continental GT V8S
+    features:
+      - description: Australian road trip in GT cars
+- episode_json:
+    series_number: 22
+    episode_number: 3
+    title: Series 22, Episode 3
+    air_date: 02/08/2015
+    guests:
+      - name: Daniel Ricciardo
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: Porsche 944 Turbo
+      - name: Ford Scorpio Cardinal
+      - name: Chevy G20 V8 Van
+    features:
+      - description: Homemade ambulance challenge
+- episode_json:
+    series_number: 22
+    episode_number: 4
+    title: Series 22, Episode 4
+    air_date: 02/15/2015
+    guests:
+      - name: Margot Robbie
+      - name: Will Smith
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: BMW M3
+      - name: BMW i8
+      - name: Mercedes-AMG GT S
+      - name: Land Rover Defender
+    features:
+      - description: Tribute to the Land Rover Defender
+- episode_json:
+    series_number: 22
+    episode_number: 5
+    title: Series 22, Episode 5
+    air_date: 02/22/2015
+    guests:
+      - name: Olly Murs
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: Porsche Cayman GTS
+      - name: Chevrolet Corvette Stingray
+      - name: Ferrari LaFerrari
+    features:
+      - description: The history of Peugeot
+- episode_json:
+    series_number: 22
+    episode_number: 6
+    title: Series 22, Episode 6
+    air_date: 03/01/2015
+    guests:
+      - name: Gillian Anderson
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: Lexus RCF
+      - name: Lexus LFA
+      - name: Chevrolet Silverado
+      - name: Ford F-150 Hennessey VelociRaptor
+    features:
+      - description: Hammond is dropped into British Columbia, Canada and rescued
+- episode_json:
+    series_number: 22
+    episode_number: 7
+    title: Series 22, Episode 7
+    air_date: 03/08/2015
+    guests:
+      - name: Nicholas Hoult
+      - name: Tanner Foust
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: Jaguar F-Type R
+      - name: Eagle Low Drag GT
+      - name: Mazda MX-5 ND
+    features:
+      - description: May competes in rallycross alongside Tanner Foust
+- episode_json:
+    series_number: 22
+    episode_number: 8
+    title: Series 22, Episode 8
+    air_date: 05/28/2015
+    hosts:
+      - name: Jeremy Clarkson
+      - name: Richard Hammond
+      - name: James May
+    cars:
+      - name: Fiat 124 Spider
+      - name: Peugeot 304 S Cabriolet
+      - name: MGB GT
+      - name: Vauxhall Frontera Sport RS
+      - name: Mitsubishi Shogun Pinin
+      - name: Jeep Cherokee
+    features:
+      - name: Find a cheap car that still lives up to the title of the classic
+      - name: Living the SUV lifestyle for less than £250

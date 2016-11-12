@@ -8,9 +8,11 @@
 
 module V1
     series_1_seed = Rails.root.join('db', 'seeds', 'series_1.yml')
+    series_22_seed = Rails.root.join('db', 'seeds', 'series_22.yml')
     series_23_seed = Rails.root.join('db', 'seeds', 'series_23.yml')
 
     data = YAML::load_file(series_1_seed)
+    data += YAML::load_file(series_22_seed)
     data += YAML::load_file(series_23_seed)
     
     Episode.create!(data)
