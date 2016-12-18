@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161029145317) do
+ActiveRecord::Schema.define(version: 20161218180301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 20161029145317) do
     t.jsonb    "episode_json", default: {}, null: false
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.text     "search_term", default: "",                    null: false
+    t.datetime "search_time", default: '2016-12-18 18:20:58', null: false
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
 end
