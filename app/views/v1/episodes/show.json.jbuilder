@@ -24,3 +24,4 @@ json.features do
         json.description        feature['description']
     end
 end
+json.summary                @episode['episode_json']['summary']

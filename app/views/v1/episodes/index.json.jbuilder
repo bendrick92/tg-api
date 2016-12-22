@@ -25,4 +25,5 @@ json.array! @episodes.each do |episode|
             json.description        feature['description']
         end
     end
+    json.summary                episode['episode_json']['summary']
 end
