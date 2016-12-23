@@ -7,6 +7,7 @@ module V1
             @episodes = Episode.all
 
             if params[:search]
+                searchTerm = params[:search]
                 searchTerms = params[:search].split(",")
 
                 searchTerms.each do |searchTerm|
