@@ -7,9 +7,11 @@ module V1
             @episodes = Episode.all
 
             if params[:search]
-                searchTerm = params[:search]
-                
-                @episodes = @episodes.where(["LOWER(episode_json::text) LIKE LOWER(?)", "%#{params[:search]}%"])
+                searchTerms = params[:search].split(",")
+
+                searchTerms.each do |searchTerm|
+                    @episodes = @episodes.where(["LOWER(episode_json::text) LIKE LOWER(?)", "%#{searchTerm}%"])
+                end
             end
 
             log = Log.new
