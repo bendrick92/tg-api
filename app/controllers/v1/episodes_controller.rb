@@ -28,27 +28,22 @@ module V1
                 # Build an array of terms split by whitespace (match as AND)
                 searchTermsArr = searchTerms.split(" ")
 
-                searchTermsArr.each do |searchTerm|
-                    # Build an array of terms split by commas (match AS OR)
-                    subSearchTermsArr = searchTerm.split(",")
+                searchTermsArr.each_with_index do |searchTerm, index|
+                    queryStringArr = []
+                    queryStringArr << "episode_json ->> 'series_number' ILIKE ?"
+                    queryStringArr << " OR episode_json ->> 'episode_number' ILIKE ?"
+                    queryStringArr << " OR episode_json ->> 'title' ILIKE ?"
+                    queryStringArr << " OR episode_json ->> 'air_date' ILIKE ?"
+                    queryStringArr << " OR episode_json ->> 'guests' ILIKE ?"
+                    queryStringArr << " OR episode_json ->> 'cars' ILIKE ?"
+                    queryStringArr << " OR episode_json ->> 'features' ILIKE ?"
+                    queryStringArr << " OR episode_json ->> 'hosts' ILIKE ?"
+                    queryStringArr << " OR episode_json ->> 'summary' ILIKE ?"
+                    queryStringArr << " OR episode_json ->> 'meta' ILIKE ?"
 
-                    if subSearchTermsArr.count > 1
-                        queryString = ""
+                    queryStringParamsArr = queryStringArr.map { |queryString| "%" + searchTerm + "%" }
 
-                        subSearchTermsArr.each_with_index do |subSearchTerm, index|
-                            if index == 0
-                                queryString << "LOWER(episode_json::text) LIKE LOWER(?)"
-                            else
-                                queryString << " OR LOWER(episode_json::text) LIKE LOWER(?)"
-                            end
-                        end
-
-                        subSearchTermsArr2 = subSearchTermsArr.map {|subSearchTerm| "%" + subSearchTerm + "%"}
-
-                        @episodes = @episodes.where(queryString, *subSearchTermsArr2)
-                    else
-                        @episodes = @episodes.where("LOWER(episode_json::text) LIKE LOWER(?)", "%#{searchTerm}%")
-                    end
+                    @episodes = @episodes.where(queryStringArr.join(), *queryStringParamsArr)
                 end
             end
 
@@ -60,7 +55,7 @@ module V1
                 log = Log.new
                 log.search_term = rawSearchTerms
                 log.search_time = searchTime
-                log.save
+                #log.save
             end
         end
 
