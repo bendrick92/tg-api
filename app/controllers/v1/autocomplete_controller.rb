@@ -122,6 +122,14 @@ module V1
                 end
             end
 
+            def isNil(input)
+                if !input.nil?
+                    return false
+                else
+                    return true
+                end
+            end
+
             def stringContainsTermAtWordStart(string, term)
                 stringArr = string.split(" ")
                 termArr = term.split(" ")
@@ -157,11 +165,16 @@ module V1
             end
             
             def getStringStartingWithTerm(input, term)
+                stringStartingWithTerm = ""
+
                 if !isNilOrEmpty(input) && !isNilOrEmpty(term)
                     termIndex = input.index(term)
-                    inputWithTerm = input.slice(termIndex..input.length)
-                    return inputWithTerm
+                    if !isNil(termIndex)
+                        stringStartingWithTerm = input.slice(termIndex..input.length)
+                    end
                 end
+
+                return stringStartingWithTerm
             end
 
             def getMatchingStringsForTerm(input, term)
