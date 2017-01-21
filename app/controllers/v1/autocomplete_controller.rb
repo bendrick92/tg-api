@@ -7,6 +7,12 @@ module V1
 
                     searchParam = params[:search].downcase
 
+                    if params[:limit]
+                        limitParam = params[:limit].to_i
+                    else
+                        limitParam = 5
+                    end
+
                     queryStringArr = []
                     queryStringArr << "episode_json ->> 'series_number' ILIKE ?"
                     queryStringArr << " OR episode_json ->> 'episode_number' ILIKE ?"
@@ -103,6 +109,8 @@ module V1
                         end
                     end
                 end
+
+                @results = @results[0,limitParam]
             end
 
         private
@@ -114,13 +122,19 @@ module V1
                 end
             end
 
-            def stringContainsTermAtStart(string, term)
-                match = string.slice(0..(term.length - 1))
-                if normalizeString(match) == normalizeString(term)
-                    return true
-                else
-                    return false
+            def stringContainsTermAtWordStart(string, term)
+                stringArr = string.split(" ")
+                termArr = term.split(" ")
+
+                stringArr.each_with_index do |stringArrItem, index|
+                    termFirstWord = termArr[0]
+                    stringArrItemSliced = stringArrItem.slice(0..(termFirstWord.length - 1))
+                    if normalizeString(stringArrItemSliced) == normalizeString(termFirstWord)
+                        return true
+                    end
                 end
+                
+                return false
             end
 
             def normalizeString(input)
@@ -157,13 +171,13 @@ module V1
                     if input.kind_of?(Array)
                         input.each do |item|
                             item = cleanseString(item)
-                            if stringContainsTermAtStart(item, term)
+                            if stringContainsTermAtWordStart(item, term)
                                 matches << item
                             end
                         end
                     else
                         input = cleanseString(input)
-                        if stringContainsTermAtStart(input, term)
+                        if stringContainsTermAtWordStart(input, term)
                             matches << input
                         end
                     end
@@ -193,10 +207,8 @@ module V1
                                 fullSuggestion = fullSuggestion + " " + nextWord
                             end
                         end
-                        if normalizeString(fullSuggestion) != normalizeString(searchTerm)
-                            if !@results.include? fullSuggestion
-                                @results << fullSuggestion
-                            end
+                        if !@results.include? fullSuggestion
+                            @results << fullSuggestion
                         end
                     end
                 end

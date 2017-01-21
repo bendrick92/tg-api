@@ -1,3 +1,3 @@
 json.ignore_nil!
 
-json.results         @results
+json.results     @results
