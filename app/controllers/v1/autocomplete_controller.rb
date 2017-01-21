@@ -39,7 +39,7 @@ module V1
                     allTitles.each do |title|
                         if !isNilOrEmpty(title)
                             title = cleanseString(title)
-                            parseForRelevantNextWords(title, searchParam)
+                            parseForRelevantTerms(title, searchParam)
                         end
                     end
 
@@ -50,7 +50,7 @@ module V1
                             guestsArr.each do |guest|
                                 guest = cleanseString(guest)
                             end
-                            parseForRelevantNextWords(guestsArr, searchParam)
+                            parseForRelevantTerms(guestsArr, searchParam)
                         end
                     end
 
@@ -61,7 +61,7 @@ module V1
                             carsArr.each do |car|
                                 car = cleanseString(car)
                             end
-                            parseForRelevantNextWords(carsArr, searchParam)
+                            parseForRelevantTerms(carsArr, searchParam)
                         end
                     end
 
@@ -69,7 +69,7 @@ module V1
                     #allFeatures.each do |features|
                     #    if !isNilOrEmpty(features)
                     #        features = cleanseString(features)
-                    #        parseForRelevantNextWords(features, searchParam)
+                    #        parseForRelevantTerms(features, searchParam)
                     #    end
                     #end
                     
@@ -80,7 +80,7 @@ module V1
                             hostsArr.each do |host|
                                 host = cleanseString(host)
                             end
-                            parseForRelevantNextWords(hostsArr, searchParam)
+                            parseForRelevantTerms(hostsArr, searchParam)
                         end
                     end
 
@@ -88,7 +88,7 @@ module V1
                     #allSummaries.each do |summary|
                     #    if !isNilOrEmpty(summary)
                     #        summary = cleanseString(summary)
-                    #        parseForRelevantNextWords(summary, searchParam)
+                    #        parseForRelevantTerms(summary, searchParam)
                     #    end
                     #end
 
@@ -99,7 +99,7 @@ module V1
                             metasArr.each do |meta|
                                 meta = cleanseString(meta)
                             end
-                            parseForRelevantNextWords(metasArr, searchParam)
+                            parseForRelevantTerms(metasArr, searchParam)
                         end
                     end
                 end
@@ -114,15 +114,9 @@ module V1
                 end
             end
 
-            def stringContainsTerm(string, term)
-                return string.downcase.include? term.downcase
-            end
-
             def stringContainsTermAtStart(string, term)
-                string = string.downcase
-                term = term.downcase
                 match = string.slice(0..(term.length - 1))
-                if match == term
+                if normalizeString(match) == normalizeString(term)
                     return true
                 else
                     return false
@@ -148,7 +142,7 @@ module V1
                 end
             end
             
-            def getInputWithTerm(input, term)
+            def getStringStartingWithTerm(input, term)
                 if !isNilOrEmpty(input) && !isNilOrEmpty(term)
                     termIndex = input.index(term)
                     inputWithTerm = input.slice(termIndex..input.length)
@@ -156,7 +150,7 @@ module V1
                 end
             end
 
-            def getMatches(input, term)
+            def getMatchingStringsForTerm(input, term)
                 matches = []
 
                 if !isNilOrEmpty(input)
@@ -178,28 +172,28 @@ module V1
                 return matches
             end
 
-            def parseForRelevantNextWords(input, searchTerm)
-                matches = getMatches(input, searchTerm)
+            def parseForRelevantTerms(input, searchTerm)
+                searchTermArr = searchTerm.split(" ")
+
+                matches = getMatchingStringsForTerm(input, searchTerm)
                 matches.each do |match|
-                    preppedMatch = prepString(match)
-                    matchWithSearchParam = getInputWithTerm(preppedMatch, searchTerm)
-                    if !isNilOrEmpty(matchWithSearchParam)
-                        currentTermArr = searchTerm.split(" ")
-                        matchWithSearchParamArr = matchWithSearchParam.split(" ")
-                        currMatchTerm = matchWithSearchParamArr[0]
-                        currentTermArr.each_with_index do |currentTerm, index|
+                    match = prepString(match)
+                    matchStartingWithTerm = getStringStartingWithTerm(match, searchTerm)
+                    if !isNilOrEmpty(matchStartingWithTerm)
+                        matchStartingWithTermArr = matchStartingWithTerm.split(" ")
+                        fullSuggestion = matchStartingWithTermArr[0]
+                        searchTermArr.each_with_index do |term, index|
                             if index > 0
-                                currMatchTerm = currMatchTerm + " " + matchWithSearchParamArr[index]
+                                fullSuggestion = fullSuggestion + " " + matchStartingWithTermArr[index]
                             end
                         end
-                        fullSuggestion = currMatchTerm
-                        if normalizeString(currMatchTerm) == normalizeString(searchTerm)
-                            nextWord = matchWithSearchParam.split(" ")[currentTermArr.length]
+                        if normalizeString(fullSuggestion) == normalizeString(searchTerm)
+                            nextWord = matchStartingWithTermArr[searchTermArr.length]
                             if !isNilOrEmpty(nextWord)
                                 fullSuggestion = fullSuggestion + " " + nextWord
                             end
                         end
-                        if fullSuggestion != searchTerm
+                        if normalizeString(fullSuggestion) != normalizeString(searchTerm)
                             if !@results.include? fullSuggestion
                                 @results << fullSuggestion
                             end
