@@ -9,7 +9,7 @@ default: &default
   encoding: unicode
   pool: 5
   username: tg_api
-  password: 1n9a9n2a
+  password: <%= ENV['TG_API_DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
