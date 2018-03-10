@@ -5,7 +5,7 @@ module V1
                 rawSearchTerms = ""
                 searchTermsArr = []
                 searchTime = DateTime.now
-                loggingEnabled = true
+                loggingEnabled = false
 
                 @episodes = Episode.all
 

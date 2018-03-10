@@ -1,24 +1,46 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Install postgresql
+sudo apt-get update
+sudo apt-get install postgresql postgresql-contrib
+gem install pg
 
-Things you may want to cover:
+### Set a root password
+sudo -u postgres psql
+\password
 
-* Ruby version
+### Create the tg_api role
+create role tg_api with createdb login password 'adifferentpassword';
+\q
 
-* System dependencies
+### Create the environment variable
+Change back to your root user
+su - yourrootusername
 
-* Configuration
+Navigate to /tg-api directory
 
-* Database creation
+TG_API_DATABASE_PASSWORD='adifferentpassword'
+export TG_API_DATABASE_PASSWORD
+printenv TG_API_DATABASE_PASSWORD
 
-* Database initialization
+### Load the JSON
+Copy the JSON files to the /db/series/ directory
 
-* How to run the test suite
+### Run the migrations
+rake db:setup
 
-* Services (job queues, cache servers, search engines, etc.)
+### Test that everything is working
+rails server
+Navigate to http://localhost:3000/v1/episodes/
 
-* Deployment instructions
-
-* ...
+### Using pgadmin
+sudo apt-get install pgadmin3
+Open pgadmin
+Connect to localhost with the settings:
+    Name: localhost
+    Host: localhost
+    Port: 5432
+    Service:
+    Maintenance DB: postgres
+    Username: postgres
+    Password: yournewpassword
